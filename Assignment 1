@@ -1,0 +1,85 @@
+/**
+ * @(#)Assignment1GR.java
+ * This program enters grades for two class groups
+ * Uses a While Loop for one and a For Loop for the other
+ * @author anon
+ * @version 1.00 2017/10/10
+ */
+
+import java.util.Scanner;//Java library class
+public class Assignment1GR {//start class
+
+    public static void main(String args[]) {//start main
+    //declare variables
+    Scanner input= new Scanner(System.in);//used for user input
+   	int total_1=0,highest_1=0,lowest_1=101,total_2=0,highest_2=0,lowest_2=101;//if not = 0 we will get error
+    String className_1,className_2;
+    int pass=0,fail=0;
+
+    //take user input
+    //************Class One**************
+    System.out.println("Please enter class name one");
+    className_1=input.nextLine();
+    System.out.println ("How many students are in "+className_1);
+    int numStudents_1=input.nextInt();
+    System.out.println(className_1+ "Number of Students "+numStudents_1 );
+    //take user input using for loop
+		for(int i=1;i<=numStudents_1;i++) {
+			System.out.println("Enter Grade: "+i);
+			int grade=input.nextInt();
+			total_1=total_1+grade;
+			if(grade>49){
+				pass++;
+			}//end if
+			else{
+				fail++;
+			}//end else
+    	 	if(grade>=highest_1){
+    	 		highest_1=grade;
+    	 	}//end if
+    	 	if(grade<=lowest_1){
+    	 		lowest_1=grade;
+    	 	}//end if
+		}//end for
+
+	    //print out
+	    System.out.println("The number of passes is: "+pass);
+	    System.out.println("The number of fails is: "+fail);
+		System.out.println("The highest grade is: "+highest_1);
+		System.out.println("The lowest grade is: "+lowest_1);
+		System.out.println("The average is "+total_1/numStudents_1);
+
+	//************Class Two**************
+    System.out.println("Please enter class name two");
+	input.next();
+    className_2=input.nextLine();
+    System.out.println ("How many students are in "+className_2);
+    int numStudents_2=input.nextInt();
+    System.out.println(className_2+ "Number of Students "+numStudents_2 );
+
+    //while to take in user input
+	    int i=1;
+	    while(i<=numStudents_2){
+	    	System.out.println("Enter Grade: "+i);
+	    	int grade=input.nextInt();
+	    	total_2=total_2+grade;
+	    	i++;
+    	 	if(grade>=highest_2){
+    	 		highest_2=grade;
+    	 	}//end if
+    	 	if(grade<=lowest_2){
+    	 		lowest_2=grade;
+	    	}//end if
+	    }//end while loop
+
+	    //print out
+	    System.out.println("The number of passes is: "+pass);
+	    System.out.println("The number of fails is: "+fail);
+		System.out.println("The highest grade is: "+highest_2);
+		System.out.println("The lowest grade is: "+lowest_2);
+		System.out.println("The average is "+total_2/numStudents_2);
+
+
+
+    }//end main
+}//end class
