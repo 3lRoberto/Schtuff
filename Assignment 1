@@ -1,8 +1,9 @@
 /**
  * @(#)Assignment1GR.java
  * This program enters grades for two class groups
- * Uses a While Loop for one and a For Loop for the other
- * @author anon
+ * Uses a For Loop for one and a While Loop for the other
+ * Records and compares averages of both classes
+ * @author Graham Robertson
  * @version 1.00 2017/10/10
  */
 
@@ -12,17 +13,18 @@ public class Assignment1GR {//start class
     public static void main(String args[]) {//start main
     //declare variables
     Scanner input= new Scanner(System.in);//used for user input
-   	int total_1=0,highest_1=0,lowest_1=101,total_2=0,highest_2=0,lowest_2=101;//if not = 0 we will get error
+   	int total_1=0,highest_1=0,lowest_1=101,total_2=0,highest_2=0,lowest_2=101;
     String className_1,className_2;
     int pass=0,fail=0;
 
     //take user input
+    
     //************Class One**************
     System.out.println("Please enter class name one");
     className_1=input.nextLine();
     System.out.println ("How many students are in "+className_1);
     int numStudents_1=input.nextInt();
-    System.out.println(className_1+ "Number of Students "+numStudents_1 );
+    System.out.println(className_1+ " number of students: "+numStudents_1 );
     //take user input using for loop
 		for(int i=1;i<=numStudents_1;i++) {
 			System.out.println("Enter Grade: "+i);
@@ -55,7 +57,7 @@ public class Assignment1GR {//start class
     className_2=input.nextLine();
     System.out.println ("How many students are in "+className_2);
     int numStudents_2=input.nextInt();
-    System.out.println(className_2+ "Number of Students "+numStudents_2 );
+    System.out.println(className_2+ " number of students: "+numStudents_2 );
 
     //while to take in user input
 	    int i=1;
@@ -79,7 +81,16 @@ public class Assignment1GR {//start class
 		System.out.println("The lowest grade is: "+lowest_2);
 		System.out.println("The average is "+total_2/numStudents_2);
 
-
+		//final print out
+		if (+total_1/numStudents_1>+total_2/numStudents_2){
+			System.out.println("The class with the higher average is "+className_1);
+		}//end if
+		else if (+total_1/numStudents_1<+total_2/numStudents_2){
+			System.out.println("The class with the higher average is "+className_2);
+		}//end else if
+		else if (+total_1/numStudents_1>=+total_2/numStudents_2){
+			System.out.println("Both classes have the same average");
+		}//end else if
 
     }//end main
 }//end class
